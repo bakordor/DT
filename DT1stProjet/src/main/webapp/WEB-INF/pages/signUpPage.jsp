@@ -1,10 +1,16 @@
 <%@ include file="header.jsp"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head>
 <body>
 
 <style>
 body{font-family: 'Ropa Sans', sans-serif; color:#666; font-size:14px; color:#333}
 li,ul,body,input{margin:0; padding:0; list-style:none}
-#login-form{width:350px; background:#FFF; margin:0 auto; margin-top:80px; background:#f8f8f8; overflow:hidden; border-radius:7px}
+#login-form{width:350px; background:#FFF; margin:0 auto; margin-top:30px; background:#f8f8f8; overflow:hidden; border-radius:7px}
 .form-header{display:table; clear:both}
 .form-header label{display:block; cursor:pointer; z-index:999}
 .form-header li{margin:0; line-height:40px; width:350px; text-align:center; background:#eee; font-size:18px; float:left; transition:all 600ms ease}
@@ -46,32 +52,28 @@ li,ul,body,input{margin:0; padding:0; list-style:none}
 	<section>
 	<div id="login-form">
 
-
-            <c:if test="${not empty msg}">
-                <div class="msg">${msg}</div>
-            </c:if>
-             <c:if test="${not empty error}">
-                <div class="error" style="color: #ff0000;">${error}</div>
-            </c:if>
 <div>
-
+<span style="color: #ff0000">${emailMsg}</span>
+  <span style="color: #ff0000">${usernameMsg}</span>
 <ul class="form-header">
-<li><label for="login"><i class="fa fa-lock"></i> LOGIN<label for="login"></li>
-
+ 
+<li><label for="signup"><i class="fa fa-credit-card"></i> REGISTER</label></li>
 </ul>
 </div>
 
 <div class="section-out">
+
 <section class="login-section">
 <div class="login">
-<form:form name="login" action="perform_login" method="post" modelAttribute="user">
- 
+<form:form method="Post" action="adduser" commandName="instuser" enctype="multipart/form-data">
 <ul class="ul-list">
-<li><input type="text" name="username" required class="input" placeholder="Your username"/><span class="icon"><i class="fa fa-user"></i></span></li><form:errors path="username" cssClass="error" />
-<li><input type="password" name="password" required class="input" placeholder="Password"/><span class="icon"><i class="fa fa-lock"></i></span></li>
-<li><input type="submit" value="SIGN IN" class="btn"></li>
-<li>New User ?<a href="signUp">Sign Up Here</a></li>
-<li><input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/></li>
+<li><input type="text" required name="username" class="input" placeholder="Username"/><span class="icon"><i class="fa fa-lock"></i></span></li>
+<li><input type="password" required name="password" class="input" placeholder="Password"/><span class="icon"><i class="fa fa-lock"></i></span></li>
+<li><input type="email" required name="email" class="input" placeholder="Your Email"/><span class="icon"><i class="fa fa-user"></i></span></li>
+<li><input type="number" required name="mobile" class="input" placeholder="Mobile Number"/><span class="icon"><i class="fa fa-lock"></i></span></li>
+<li><input type="text" required name="address" class="input" placeholder="Address"/><span class="icon"><i class="fa fa-user"></i></span></li>
+<li><input type="file" required name="image" class="input" /></li>
+<li><input type="submit" value="SIGN UP" class="btn"></li>
 </ul>
 </form:form>
 </div>

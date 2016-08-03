@@ -9,10 +9,10 @@ public class projController {
     public ModelAndView indexPage() {  
    
         return new ModelAndView("index");  
-    }  	@RequestMapping(value={"/register"})  
-    public ModelAndView loginPage() {  
-   
-        return new ModelAndView("register");  
     } 
-}
+ 	@RequestMapping(value={"/register"})  
+public ModelAndView registerPage() {  
 
+    return new ModelAndView("register");  
+}
+}
